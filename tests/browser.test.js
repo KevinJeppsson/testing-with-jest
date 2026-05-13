@@ -34,3 +34,26 @@ describe('Clicking "Pusha till stacken"', () => {
         await alert.accept();
     });
 });
+
+// Selenium test
+test("Peek twice shows same value if no push", async () => {
+    // Pusha ett värde
+    let pushBtn = await driver.findElement(By.id("push"));
+    await pushBtn.click();
+    let alert = await driver.switchTo().alert();
+    await alert.sendKeys("Oförändrad");
+    await alert.accept();
+
+    // Peeka första gången
+    let peekBtn = await driver.findElement(By.id("peek"));
+    await peekBtn.click();
+    let display = await driver.findElement(By.id("top_of_stack"));
+    let first = await display.getText();
+
+    // Peeka andra gången
+    await peekBtn.click();
+    let second = await display.getText();
+
+    expect(first).toBe("Oförändrad");
+    expect(second).toBe("Ändrad");
+});
