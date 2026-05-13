@@ -22,6 +22,6 @@ test('peek on stack with two or more elements returns the top element', () => {
 test("pop removes and returns the top element", () => {
     stack.push("x");
     stack.push("y");
-    expect(stack.pop()).toBe("x");
     expect(stack.pop()).toBe("y");
+    expect(stack.pop()).toBe("x");
 });
