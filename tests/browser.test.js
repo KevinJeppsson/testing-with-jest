@@ -55,5 +55,5 @@ test("Peek twice shows same value if no push", async () => {
     let second = await display.getText();
 
     expect(first).toBe("Oförändrad");
-    expect(second).toBe("Ändrad");
+    expect(second).toBe("Oförändrad");
 });
