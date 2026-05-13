@@ -17,3 +17,11 @@ test('peek on stack with two or more elements returns the top element', () => {
     expect(stack.peek()).toBeDefined();
     expect(stack.peek()).toBe(42);
 });
+
+// Jest test
+test("pop removes and returns the top element", () => {
+    stack.push("x");
+    stack.push("y");
+    expect(stack.pop()).toBe("x");
+    expect(stack.pop()).toBe("y");
+});
